@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Plugin1
+Bundle-SymbolicName: hu.prolan.plugin1
+Bundle-Version: 1.0.0.qualifier
