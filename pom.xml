@@ -6,7 +6,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho.version>1.1.0</tycho.version>
+		 <tycho-version>1.1.0</tycho-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<eclipse-repo.url>http://download.eclipse.org/releases/neon/201705151400
 		</eclipse-repo.url>
@@ -15,11 +15,8 @@
 	</properties>
 
 	<scm>
-		<connection>scm:git:file://C:/users/fekete.agnes/my_github/test/test</connection>
-		<developerConnection>scm:git:file://C:/users/fekete.agnes/my_github/test/test</developerConnection>
-
-    
-    <tag>hu.prolan.promod.root-1.0.0</tag>
+		<connection>scm:git:https://github.com/fneska/tycho_release.git</connection>
+   		<developerConnection>scm:git:https://github.com/fneska/tycho_release.git</developerConnection>
   </scm>
 
 	<repositories>
@@ -78,14 +75,14 @@
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
-				<version>${tycho.version}</version>
+				<version>${tycho-version}</version>
 				<extensions>true</extensions>
 			</plugin>
 
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-packaging-plugin</artifactId>
-				<version>${tycho.version}</version>
+				<version>${tycho-version}</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
@@ -101,7 +98,7 @@
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
-				<version>${tycho.version}</version>
+				<version>${tycho-version}</version>
 				<configuration>
 					<pomDependencies>consider</pomDependencies>
 					<environments>
@@ -160,18 +157,16 @@
            <plugin>
            		<groupId>org.eclipse.tycho</groupId>  
   				<artifactId>tycho-versions-plugin</artifactId>  
- 				 <version>${tycho.version}</version>  
+ 				 <version>${tycho-version}</version>  
 			</plugin> 
 
-		
-		
-    <plugin>
+		<plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-release-plugin</artifactId>
                <version>2.5.3</version>
                <configuration>
-                   <preparationGoals>org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add -DpushChanges=false org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin</preparationGoals>
-                   <completionGoals>org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add -DpushChanges=false org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin</completionGoals>
+                   <preparationGoals>org.eclipse.tycho:tycho-versions-plugin:${tycho-version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin</preparationGoals>
+                   <completionGoals>org.eclipse.tycho:tycho-versions-plugin:${tycho-version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin</completionGoals>
                </configuration>
            </plugin>
            <plugin>
@@ -179,13 +174,12 @@
                <artifactId>maven-scm-plugin</artifactId>
                <executions>
                    <execution>
-                   <id>default-cli</id>
+                       <id>default-cli</id>
                        <goals>
                            <goal>add</goal>
                            <goal>checkin</goal>
                        </goals>
                        <configuration>
-                       <connectionType>developerConnection</connectionType>
                            <includes>**/META-INF/MANIFEST.MF, **/feature.xml, **/*.product,**/category.xml</includes>
                            <excludes>**/target/**</excludes>
                            <message>Changing the Eclipse files versions</message>
@@ -193,11 +187,14 @@
                    </execution>
                </executions>
            </plugin>
+		
+   
+         
        </plugins>
   </build>
 		<modules>
 
-		<module>hu.prolan.xtendTest1</module>
-		<module>hu.prolan.xtendTest2</module>
+		<module>hu.prolan.plugin1</module>
+		<module>hu.prolan.plugin2</module>
 	</modules>
 </project>

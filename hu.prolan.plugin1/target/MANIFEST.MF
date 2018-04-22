@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: hu.prolan.plugin1
+Bundle-Name: Plugin1
+Bundle-Version: 1.0.0.201804222006
+Bundle-ManifestVersion: 2
+
